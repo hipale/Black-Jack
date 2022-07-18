@@ -1,0 +1,109 @@
+body {
+    background-color: #edd1b4;
+    font-family: 'Press Start 2P', cursive;
+    }
+    header {
+        text-align: center;
+        letter-spacing: 4px;
+        background-color: #4e5273;
+        padding: 15px;
+    }
+    #container {
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        
+    }
+    .item {
+        min-height: 100px;
+        min-width: 210px;
+        background-color: #cbb092;
+        border: 3px solid black;
+        z-index: 5;
+    }
+    
+    .butt {
+        background-color:#cbb092;
+        border: none;
+        min-height: 100px;
+        min-width: 210px;
+        font-family: 'Press Start 2P', cursive;
+        
+        
+    }
+    .butt:hover, .item:hover{
+        opacity: 0.5;
+         transform: scale(1.05,1.07);
+        
+    }
+    .butt:active, .item:active{
+        opacity: 1;
+        
+    }
+    #hp {
+        text-align: center;
+        padding: 15px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .nav-butt {
+        background-color:#4e5273;
+        text-transform: uppercase;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 70px;
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    #playButton {
+        height: 100px;
+        width: 300px;
+        
+    }
+    #contButton {
+        height: 100px;
+    }
+    .nav-butt:active {
+        background-color: pink;
+        transform: scale(1.05,1.07);
+    }
+    #nav2{
+        background-color: #4e5273;
+        height: 350px;
+        width: 300px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        z-index: 5;
+        justify-content: center;
+        border: 3px solid black;
+    }
+    .nav2-butt {
+        height: 50px;
+        width: 100px;
+        background-color:#bba14f;
+        text-transform: uppercase;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 10px;
+        font-weight: bold;
+    }
+    .nav2-butt:hover {
+        opacity: 0.5;
+         transform: scale(1.05,1.07);
+    }
+    .nav2-butt:active {
+        border: none;
+        opacity: 1;
+    }
+    #licznik {
+        color: #bba14f;
+        height: 50px;
+        width: 50px;
+        text-align: center;
+    }

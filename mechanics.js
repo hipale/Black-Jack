@@ -1,104 +1,54 @@
+let health = document.querySelector("#hp");
+let button = document.querySelector("button");
+let butts = document.querySelectorAll("button");
+let counter = document.getElementById("licznik");
+const cont = document.querySelector("#container");
+let endPage = document.getElementById("nav2");
+endPage.style.visibility = "hidden";
+for (let x = 0; x < 4; x++) {
+    butts[x].addEventListener("click", choose)
+}
 play()
-function wybierz() {
-	document.getElementById("hp").innerHTML = parseInt(document.getElementById("hp").innerHTML) + parseInt(event.target.value);
-	event.target.value = Math.floor(Math.random() * (10 + 6) -6);
-	
-	document.getElementById("licznik").innerHTML = parseInt(document.getElementById("licznik").innerHTML) + 1;
-		do {event.target.value = Math.floor(Math.random() * (10 + 6) - 6)}
-		while ( event.target.value == 0);
-		
-		if (document.getElementById("hp").innerHTML > 21 || document.getElementById("hp").innerHTML < -21) { 
-gameOver()
- document.getElementById("butt1").onclick = "";
- document.getElementById("butt2").onclick = "";
- document.getElementById("butt3").onclick = "";
- document.getElementById("butt4").onclick = "";
+function choose(e) {
+    health.innerHTML = parseInt(health.innerHTML) + parseInt(e.target.innerHTML);
+    e.target.innerHTML = Math.floor(Math.random() * (10 + 6) - 6);
+    counter.innerHTML = parseInt(counter.innerHTML) + 1;
+    do { e.target.innerHTML = Math.floor(Math.random() * (10 + 6) - 6) }
+    while (e.target.innerHTML == 0);
+    console.log(butts[0]);
+    if (health.innerHTML > 21 || health.innerHTML < -21) {
+        gameOver()
+    }
+    if (e.target.innerHTML > 0) {
+        e.target.style.backgroundColor = "#b53643";
+    } else if (e.target.innerHTML < 0) {
+        e.target.style.backgroundColor = "#2973b8";
+    };
 }
-if (document.getElementById("butt1").value > 0) {
-document.getElementById("butt1").style.backgroundColor = "#b53643";
-} else if (document.getElementById("butt1").value < 0) {
-document.getElementById("butt1").style.backgroundColor = "#2973b8";
+function play() {
+    health.innerHTML = 0;
+    counter.innerHTML = 0;
+    getTheButtonVal()
+    
 }
-if (document.getElementById("butt2").value > 0) {
-document.getElementById("butt2").style.backgroundColor = "#b53643";
-} else if (document.getElementById("butt2").value < 0) {
-document.getElementById("butt2").style.backgroundColor = "#2973b8";
-}
-if (document.getElementById("butt3").value > 0) {
-document.getElementById("butt3").style.backgroundColor = "#b53643";
-} else if (document.getElementById("butt3").value < 0) {
-document.getElementById("butt3").style.backgroundColor = "#2973b8";
-}
-if (document.getElementById("butt4").value > 0) {
-document.getElementById("butt4").style.backgroundColor = "#b53643";
-} else if (document.getElementById("butt4").value < 0) {
-document.getElementById("butt4").style.backgroundColor = "#2973b8";
-}
-console.log(event.target.value);
-	}
-
- function play() {
-	 document.getElementById("hp").innerHTML = 0;
-	 let num = [document.getElementById("butt1").value, document.getElementById("butt1").value, document.getElementById("butt1").value,
-document.getElementById("butt1").value ]
-
-document.getElementById("butt1").value = Math.floor(Math.random() * 10);
-document.getElementById("butt2").value = Math.floor(Math.random() * 10);
-document.getElementById("butt3").value = Math.floor(Math.random() * 10);
-document.getElementById("butt4").value = Math.floor(Math.random() * 10);
-if (Math.floor(Math.random() * 2) == 1) {
-	document.getElementById("butt1").value = document.getElementById("butt1").value * -1
-} else {
-	document.getElementById("butt1").value = document.getElementById("butt1").value * 1
-}
-if (Math.floor(Math.random() * 2) == 1) {
-	document.getElementById("butt2").value = document.getElementById("butt2").value * -1
-} else {
-	document.getElementById("butt2").value = document.getElementById("butt2").value * 1
-}
-if (Math.floor(Math.random() * 2) == 1) {
-	document.getElementById("butt3").value = document.getElementById("butt3").value * -1
-} else {
-	document.getElementById("butt3").value = document.getElementById("butt3").value * 1
-}
-if (Math.floor(Math.random() * 2) == 1) {
-	document.getElementById("butt4").value = document.getElementById("butt4").value * -1
-} else {
-	document.getElementById("butt4").value = document.getElementById("butt4").value * 1
-}
-
-if (document.getElementById("butt1").value > 0) {
-document.getElementById("butt1").style.backgroundColor = "#b53643";
-} else if (document.getElementById("butt1").value < 0) {
-document.getElementById("butt1").style.backgroundColor = "#2973b8";
-} else {
-	document.getElementById("butt1").style.backgroundColor = "#7e2691";
-}
-if (document.getElementById("butt2").value > 0) {
-document.getElementById("butt2").style.backgroundColor = "#b53643";
-} else if (document.getElementById("butt2").value < 0) {
-document.getElementById("butt2").style.backgroundColor = "#2973b8";
-} else {
-	document.getElementById("butt2").style.backgroundColor = "#7e2691";
-}
-if (document.getElementById("butt3").value > 0) {
-document.getElementById("butt3").style.backgroundColor = "#b53643";
-} else if (document.getElementById("butt3").value < 0) {
-document.getElementById("butt3").style.backgroundColor = "#2973b8";
-} else {
-	document.getElementById("butt3").style.backgroundColor = "#7e2691";
-}
-if (document.getElementById("butt4").value > 0) {
-document.getElementById("butt4").style.backgroundColor = "#b53643";
-} else if (document.getElementById("butt4").value < 0) {
-document.getElementById("butt4").style.backgroundColor = "#2973b8";
-} else {
-	document.getElementById("butt4").style.backgroundColor = "#7e2691";
-}
- }
-
-document.getElementById("nav2").style.visibility = "hidden";
 function gameOver() {
-	document.getElementById("nav2").style.visibility = "visible";
+    endPage.style.visibility = "visible";
+    for (let y = 0; y < 4; y++) {
+        butts[y].removeEventListener("click", choose);
+    }
 }
-
+function getTheButtonVal() {
+    for (let i = 0; i < 4; i++) {
+        butts[i].innerHTML = Math.floor(Math.random() * (10 + 6) - 6);
+        if (butts[i].innerHTML > 0) {
+            butts[i].style.backgroundColor = "#b53643";
+        } else if (butts[i].innerHTML < 0) {
+            butts[i].style.backgroundColor = "#2973b8";
+        };
+        if (Math.floor(Math.random() * 2) == 1) {
+            butts.innerHTML = butts.innerHTML * -1
+        } else {
+            butts.innerHTML = butts.innerHTML * 1
+        }
+    } 
+};

@@ -4,7 +4,6 @@ let butts = document.querySelectorAll("button");
 let counter = document.getElementById("licznik");
 const cont = document.querySelector("#container");
 let endPage = document.getElementById("nav2");
-endPage.style.visibility = "hidden";
 for (let x = 0; x < 4; x++) {
     butts[x].addEventListener("click", choose)
 }
@@ -33,6 +32,7 @@ function play() {
 }
 function gameOver() {
     endPage.style.visibility = "visible";
+    endPage.style.transform = "scale(1.167, 1.20)"
     for (let y = 0; y < 4; y++) {
         butts[y].removeEventListener("click", choose);
     }
